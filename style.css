@@ -213,7 +213,7 @@ h1.title {
     width: 100%;
     max-width: 380px;
     min-height: 580px; 
-    background-image: url('../1.png'); 
+    background-image: url(1.png); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
@@ -352,7 +352,7 @@ h1.title {
     width: 100%;
     max-width: 350px;
     min-height: 500px;
-    background-image: url('../2.png'); 
+    background-image: url(2.png); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
