@@ -1,22 +1,22 @@
 let currentBlownState = false;
 
-// 🔥 FUNGSI PIN (Ini yang tadi hilang)
+
 function checkPin() {
     const pinInput = document.getElementById('pinInput').value;
     const errorMessage = document.getElementById('errorMessage');
     
-    // PIN: 6 Juni 2003 -> 060603
+   
     if (pinInput === "060603") {
         errorMessage.classList.add('hidden');
-        nextPage(2); // Masuk ke halaman kue ultah
-        initMicrophone(); // Aktifkan pendeteksi tiupan mic setelah unlock
+        nextPage(2); 
+        initMicrophone();
     } else {
         errorMessage.classList.remove('hidden');
-        document.getElementById('pinInput').value = ""; // Reset input jika salah
+        document.getElementById('pinInput').value = ""; 
     }
 }
 
-// FUNGSI NAVIGASI HALAMAN
+
 function nextPage(pageNumber) {
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
@@ -30,14 +30,14 @@ function nextPage(pageNumber) {
     }
 }
 
-// LOGIKA TIUP LILIN
+
 function blowOut() {
     if (currentBlownState) return;
     currentBlownState = true;
 
     document.getElementById('flame').style.display = 'none';
 
-    // Efek Selebrasi Warna Kopi & Emas
+    
     const coffeeColors = ['#4A3B32', '#9C8470', '#E6D8CE', '#D4AF37'];
     if (typeof confetti === 'function') {
         confetti({
@@ -48,16 +48,16 @@ function blowOut() {
         });
     }
 
-    // Pindah otomatis ke Surat Ucapan (Page 3) setelah 1.2 detik
+    
     setTimeout(() => {
         nextPage(3);
     }, 1200);
 }
 
-// Deteksi Klik pada Kue (Sebagai cadangan jika mic ditolak)
+
 document.getElementById('cakeContainer').addEventListener('click', blowOut);
 
-// DETEKSI TIUPAN MIKROFON
+
 function initMicrophone() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ audio: true })
@@ -86,10 +86,10 @@ function initMicrophone() {
 
                 const average = values / array.length;
 
-                // Jika mendeteksi tiupan (Ambang batas volume suara 65)
+                
                 if (average > 65) {
                     blowOut();
-                    // Matikan fungsi mikrofon setelah berhasil ditiup
+                    
                     stream.getTracks().forEach(track => track.stop());
                 }
             };
