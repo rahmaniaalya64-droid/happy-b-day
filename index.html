@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ecal's special day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Sacramento&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page active" id="page1">
+            <div class="card text-center">
+                <h2>Access Locked 🔒</h2>
+                <p class="subtitle" style="margin-bottom: 20px;">Please enter your birthday date as the PIN to unlock your gift:</p>
+                
+                <input type="password" id="pinInput" placeholder="______" maxlength="6" pattern="\d*">
+                <p id="errorMessage" class="error-msg hidden">Wrong PIN! Try again, love. 🤍</p>
+                
+                <button class="btn" onclick="checkPin()">Unlock ✨</button>
+            </div>
+        </div>
+
+        
+        <div class="page" id="page2">
+            <h1 class="title">Happy Birthday, Sayangg! 🤍</h1>
+            <p class="subtitle">Allow microphone access and blow the candle, or just tap it to blow out!</p>
+            <div class="cake" id="cakeContainer">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <div class="candle">
+                    <div class="flame" id="flame"></div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="page" id="page3">
+            <div class="typewriter-container">
+                <div class="paper-content">
+                    <div class="text-scroller">
+                        <h2 class="letter-title">For My Favorite Person</h2>
+                        
+                        <p class="wish-text-latin">
+                            Happy birthday sayangg! thank you so much for being born and bringing so much warmth 
+                            into my world. 
+                            i am incredibly grateful for your presence, 
+                          your laughter, and every little moment we share. 
+                            on this special day, wish you endless happiness,  
+                            love you always sayangg! 🤍
+                        </p>
+                    </div>
+                </div>
+                <button class="btn btn-typewriter" onclick="nextPage(4)">Next Page ✨</button>
+            </div>
+        </div>
+
+    
+       <div class="page" id="page4">
+            <div class="envelope-container">
+                <div class="envelope-paper">
+                    <h2>My Ultimate Wish 🕊️</h2>
+                    <div class="wish-box-envelope">
+                        <p>"hopefully we can celebrate many more birthdays together in the years to come. thank you for being the kindest, most patient person I've ever known."</p>
+                    </div>
+                    <div class="signature-envelope">With love, Me ✨</div>
+                </div>
+                <button class="btn btn-envelope" onclick="nextPage(5)">Open Your Gift 🎁</button>
+            </div>
+        </div>
+    
+
+        <div class="page" id="page5">
+            <div class="card text-center">
+                <h2 class="gift-title">Tap the box to open! 💝</h2>
+                
+                <div class="gift-container" id="giftContainer" onclick="openGift()">
+                    <img src="image/kado-tutup.png" class="gift-box-img" id="giftBox">
+                    <img src="image/kado-buka.png" class="gift-box-img hidden" id="giftBoxOpen">
+                    <img src="image/gift.png" class="voucher-img hidden" id="voucherPrize">
+                </div>
+
+                <p id="claimText" style="margin-top: 15px; font-weight: bold; color: #897161;"></p>
+                <button class="btn btn-back" onclick="nextPage(2)">Blow the Candle Again 🎂</button>
+            </div>
+        </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
